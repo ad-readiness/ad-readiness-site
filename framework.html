@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AD Readiness Framework</title>
+  <meta name="description" content="Das AD Readiness Framework strukturiert die Bewertung autonomer Mobilitätsanwendungen von der Datenbasis bis zur priorisierten Pilotentscheidung.">
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-256.png">
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.08);
+      --panel-border: rgba(255,255,255,0.14);
+      --text: #eef2ff;
+      --muted: #b7c1d9;
+      --accent: #61dafb;
+      --accent-2: #8b5cf6;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(97,218,251,0.16), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(139,92,246,0.18), transparent 28%),
+        linear-gradient(135deg, #08101d 0%, #0b1020 45%, #121933 100%);
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 28px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101d;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: 34px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: #9ae6b4;
+      background: rgba(154,230,180,0.10);
+      border: 1px solid rgba(154,230,180,0.20);
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+
+    .framework-image {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      display: block;
+      margin-top: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #fff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .step span {
+      color: var(--muted);
+      line-height: 1.6;
+      display: block;
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 18px;
+    }
+
+    .example-card {
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .example-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .example-content {
+      padding: 18px 18px 20px;
+    }
+
+    .example-content h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .example-content p {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #90e0ff);
+      color: #08101d;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .steps,
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AD</span>
+      <span>AD Readiness</span>
+    </a>
+
+    <section class="card">
+      <div class="eyebrow">Methodik</div>
+      <h1>AD Readiness Framework</h1>
+      <p>
+        Das AD Readiness Framework strukturiert die Bewertung autonomer Mobilitätsanwendungen
+        von der Datenbasis bis zur priorisierten Pilotentscheidung.
+      </p>
+      <p>
+        Die Analyse kombiniert infrastrukturelle, technische, betriebliche und strategische
+        Kriterien und übersetzt diese in priorisierte Pilotkorridore sowie einen belastbaren
+        AD Readiness Index.
+      </p>
+
+      <img class="framework-image" src="Das 4 Stufen Model zur AD Readiness Analyse_dt_v2.png" alt="AD Readiness Framework">
+
+      <div class="steps">
+        <div class="step">
+          <strong>Stufe 1 – Physische Machbarkeit</strong>
+          <span>Prüfung von Infrastruktur, Geometrie und grundlegenden Restriktionen als erster Filter.</span>
+        </div>
+        <div class="step">
+          <strong>Stufe 2 – Technische Eignung</strong>
+          <span>Datenbasierte Bewertung der technischen Umsetzbarkeit auf Segment- und Korridorebene.</span>
+        </div>
+        <div class="step">
+          <strong>Stufe 3 – Betriebsqualität</strong>
+          <span>Einordnung von Stabilität, Komfort und betrieblicher Robustheit im realen Einsatzkontext.</span>
+        </div>
+        <div class="step">
+          <strong>Stufe 4 – Strategische Priorisierung</strong>
+          <span>Übersetzung der Analyse in priorisierte Pilotkorridore und belastbare Entscheidungsgrundlagen.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Beispiele</div>
+      <h2>Beispielanalysen Nürnberg</h2>
+      <p>
+        Nachfolgend zwei exemplarische Visualisierungen, wie AD Readiness Analyseergebnisse
+        für urbane Netze und Linienstrukturen aufbereitet werden können.
+      </p>
+
+      <div class="examples-grid">
+        <article class="example-card">
+          <img src="excample2.jpg" alt="AD/L4 Readiness Index in der VGN Region Nürnberg">
+          <div class="example-content">
+            <h3>Beispiel 1 – AD/L4 Readiness Index</h3>
+            <p>
+              Visualisierung des Readiness Index im regionalen Straßennetz mit priorisierten
+              Straßenabschnitten und Score-Logik als Grundlage für die Vorqualifikation.
+            </p>
+          </div>
+        </article>
+
+        <article class="example-card">
+          <img src="excample1.jpg" alt="VGN Buslinienanalyse im Straßennetz Nürnberg">
+          <div class="example-content">
+            <h3>Beispiel 2 – Buslinienanalyse im Netz</h3>
+            <p>
+              Verknüpfung von Linienstruktur, Engpässen und Readiness-Bewertung zur schnellen
+              Einordnung von L4-Potenzialen auf konkreten Betriebskorridoren.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <p class="note">
+        Interaktive Detailansichten und weiterführende Analysebeispiele können bei Bedarf
+        im direkten Austausch vorgestellt werden.
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn-secondary" href="index.html">← Zurück zur Startseite</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
