@@ -238,6 +238,72 @@
       box-shadow: 0 0 0 8px rgba(154,230,180,0.08);
     }
 
+
+    .problem-section {
+      padding: 0 0 28px;
+    }
+
+    .problem-card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: 34px;
+    }
+
+    .problem-lead {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.75;
+      max-width: 900px;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 22px 0 20px;
+    }
+
+    .problem-box {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .problem-box h3,
+    .solution-strip h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+    }
+
+    .problem-box ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .problem-box li + li {
+      margin-top: 8px;
+    }
+
+    .solution-strip {
+      padding: 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(97,218,251,0.10), rgba(139,92,246,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .solution-strip p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
     footer {
       padding: 0 0 36px;
       color: var(--muted);
@@ -248,11 +314,15 @@
       .hero {
         grid-template-columns: 1fr;
       }
-      .highlights {
+      .highlights,
+      .problem-grid {
         grid-template-columns: 1fr;
       }
       .card {
         padding: 30px;
+      }
+      .problem-card {
+        padding: 28px;
       }
     }
 
@@ -290,6 +360,48 @@
              alt="AD Readiness Consulting Banner"
              loading="eager"
              style="display:block; width:100%; height:auto; object-fit:cover;" />
+      </div>
+    </section>
+
+
+    <section class="problem-section">
+      <div class="problem-card">
+        <div class="eyebrow">Marktproblem</div>
+        <h2>Warum autonome Pilotprojekte heute oft zu spät präzisiert werden</h2>
+        <p class="problem-lead">
+          In vielen Städten werden autonome Pilotprojekte nicht aus einer systematischen Netzanalyse
+          heraus entwickelt, sondern opportunistisch gewählt, politisch motiviert gestartet oder aus
+          einzelnen Streckenideen abgeleitet. Die kritische Frage kommt dadurch oft zu spät:
+          <strong>Wo ist autonomer Betrieb realistisch – und wo nicht?</strong>
+        </p>
+
+        <div class="problem-grid">
+          <div class="problem-box">
+            <h3>Heute oft die Realität</h3>
+            <ul>
+              <li>Pilotkorridore werden punktuell statt netzweit betrachtet</li>
+              <li>Infrastrukturelle Probleme werden erst im Engineering oder Testbetrieb sichtbar</li>
+              <li>Vergleichbarkeit zwischen potenziellen Einsatzräumen fehlt</li>
+            </ul>
+          </div>
+          <div class="problem-box">
+            <h3>Die Folge</h3>
+            <ul>
+              <li>ungeeignete oder schwer skalierbare Korridore</li>
+              <li>hohe Iterationskosten und langsame Entscheidungen</li>
+              <li>politisch schwer belastbare Pilotdefinitionen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="solution-strip">
+          <h3>Unser Ansatz</h3>
+          <p>
+            AD Readiness dreht diese Logik um: Statt einzelne Ideen nachträglich zu prüfen, wird das
+            Netz zuerst strukturiert analysiert. So lassen sich priorisierte Korridore ableiten,
+            infrastrukturelle Engstellen früh erkennen und potenzielle Einsatzräume vergleichbar bewerten.
+          </p>
+        </div>
       </div>
     </section>
 
